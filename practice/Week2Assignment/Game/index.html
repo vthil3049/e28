@@ -5,12 +5,14 @@
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width">
    <title>Memory Game</title>
+   <link rel="stylesheet" type="text/css" href="styles.css">
    <script src="script.js"></script>
 
 </head>
 
 <body>
    <h1>Memory Game</h1>
+   <h3>The goal of the game is to memorize as many digits as possible in 5 seconds</h3>
 
    <div>
       <label><input type='number' value='6' name='count' id="count" min="4" max="10">Enter # of digits you can memorize
@@ -18,13 +20,17 @@
    </div>
 
    <button id='showNumber'>Show</button>
-   <h6 id="message01">
+   <h4 id="message01">
       You opted to remember <span id="numDigits"></span> digits. Memorize the numbers in <span id="numSeconds">5</span>
-      seconds
-   </h6>
+      seconds. Once the timer has counted down, enter the numbers in the exact sequence and separated by commas and 'Submit' your answer.
    <h4 id="toRemember">
 
    </h4>
+   <div id="entrySection">
+     <label for="entryTextbox">Enter your number here</label>
+     <input type="text" id="entryTextbox" name="entryTextbox" disabled />
+     <button id="submit" name="submit">Submit</button>
+   </div>
 
 
 </body>
