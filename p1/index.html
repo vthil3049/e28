@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <title>Project 1</title>
+   <meta name="description" content="">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"> -->
+   <link rel="stylesheet" href="styles.css">
+   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
+   <script src="script.js" async defer></script>
+</head>
+
+<body>
+   <div class="container">
+      <h1>Memory Game</h1>
+      <div id='app' v-cloak>
+         <h4>Lets test your memory. <br>How many numbers can you memorize in 5 seconds?</h4>
+         <!-- <label>Item: <input type='text' v-model='itemName'></label><br> -->
+         <label>Count: <input type='number' v-model='challengeCount' min='1'></label>
+         <button v-on:click="getChallengeNumbers">Submit digit count</button>
+         <div v-if='canShowNumbers()'>
+            <h4>Please memorize the numbers in {{countdown}} seconds</h4>
+            <h5>{{timing}}</h5>
+
+            <ul>
+               <li v-for="adigit in numbersShown">{{adigit}}</li>
+            </ul>
+         </div>
+         <div v-else>
+
+         </div>
+
+      </div>
+   </div>
+</body>
+
+</html>
