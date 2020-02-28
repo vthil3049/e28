@@ -1,3 +1,9 @@
+body {
+  padding-left: 10%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .message,
 #numDigits {
    color: red;
