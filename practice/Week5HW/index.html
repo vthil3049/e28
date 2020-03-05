@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+  <title>Week 5 HW</title>
+  <meta charset='utf-8'>
+  <link href=data:, rel=icon>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
+
+  <script src='script.js' defer></script>
+
+</head>
+
+<body>
+
+  <h1 class="text-center">Week 5 HW</h1>
+  <div class="container">
+    <div id='app' v-cloak>
+      <div v-if="playerName.length==0">
+        <label>What is your name?<br>
+          <input type="text" v-model="name">
+          <button @click="startGame">Submit</button>
+      </div>
+      <div v-else>
+        <!-- <button @click="resetGame">Reset</button> -->
+        <h3>Game on, {{playerName}}!</h3><br>
+        <!-- Correct Word: {{correctWord}} -->
+        <h4>Your mystery word is: {{scrambledWord}}<br></h4>
+        <span><strong>Hint: </strong></span>{{wordHint}}<br>
+        <label>Enter your answer:
+          <input type="text" v-model="guessWord"></input>
+        </label>
+
+        <button @click="checkWord">Submit guess</button>
+        <div id='feedback'>
+          <div v-bind:class='{ error : !correct }' class='feedback'>{{ feedback }}</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+
+</html>
