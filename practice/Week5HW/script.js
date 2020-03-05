@@ -79,6 +79,17 @@ let app = new Vue({
 
 
 
+    },
+    computed: {
+        feedBackObject: function () {
+            return {
+ 
+                'bg-danger' : !this.correct,
+                    'bg-success': this.correct,
+                    'text-light': true
+             }
+
+        }
     }
 
 })

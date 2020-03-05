@@ -35,7 +35,7 @@
 
         <button @click="checkWord">Submit guess</button>
         <div id='feedback'>
-          <div v-bind:class='{ error : !correct }' class='feedback'>{{ feedback }}</div>
+          <div v-bind:class="feedBackObject">{{ feedback }}</div>
         </div>
       </div>
 
