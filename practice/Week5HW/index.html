@@ -16,6 +16,7 @@
 <body>
 
   <h1 class="text-center">Week 5 HW</h1>
+  <h6>Vani Thilagar</h6>
   <div class="container">
     <div id='app' v-cloak>
       <div v-if="playerName.length==0">
@@ -34,8 +35,11 @@
         </label>
 
         <button @click="checkWord">Submit guess</button>
-        <div id='feedback'>
+        <div id='feedback' v-if="feedback.length > 0">
           <div v-bind:class="feedBackObject">{{ feedback }}</div>
+        </div>
+        <div>
+          <button @click="restartGame">Restart Game</button>
         </div>
       </div>
 
@@ -44,3 +48,6 @@
 </body>
 
 </html>
+<!--
+  <div v-bind:class="{ true : false }"></div>
+-->

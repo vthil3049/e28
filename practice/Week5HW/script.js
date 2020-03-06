@@ -3,12 +3,13 @@ let app = new Vue({
     data: {
         name: '',
         playerName: '',
-        scrambledWord: '',
+        //scrambledWord: '',
         correctWord: '',
         wordHint: '',
         guessWord: '',
         feedback: '',
         correct: null,
+        prevWord: '',
         words: [
             ['apple', 'Sometimes red, sometimes delicious'],
             ['washington', 'Rushmore’s left edge'],
@@ -19,8 +20,15 @@ let app = new Vue({
 
     },
     methods: {
-        resetGame: function () {
+        restartGame: function () {
             //this.playerName = '';
+            this.prevWord = this.correctWord;
+            this.correctWord = '';
+            this.wordHint = '';
+            this.feedback = '';
+            this.correct = null;
+            this.guessWord = '';
+            this.playGame();
         },
         getRandomIntInclusive: function (min, max) {
             //THe function below is from the MDN site
@@ -54,14 +62,20 @@ let app = new Vue({
         startGame: function () {
             this.playerName = this.name;
             this.name = '';
+            this.correctWord = '';
             this.playGame();
         },
         playGame: function () {
             let len = this.words.length;
-            let i = this.getRandomIntInclusive(0, len - 1);
-            this.correctWord = this.words[i][0];
+            let i;
+            do {
+                i = this.getRandomIntInclusive(0, len - 1);
+
+                this.correctWord = this.words[i][0];
+            } while (this.prevWord == this.correctWord)
+
             this.wordHint = this.words[i][1];
-            this.scrambledWord = this.scrambleWord(this.correctWord);
+            //this.scrambledWord = this.scrambleWord(this.correctWord);
         },
         checkWord: function () {
             if (this.guessWord == this.correctWord) {
@@ -73,21 +87,18 @@ let app = new Vue({
                 this.correct = false;
                 console.log("incorrect");
             }
-
-
         }
-
-
-
     },
     computed: {
+        scrambledWord: function () {
+            return this.scrambleWord(this.correctWord);
+        },
         feedBackObject: function () {
             return {
- 
-                'bg-danger' : !this.correct,
-                    'bg-success': this.correct,
-                    'text-light': true
-             }
+                'bg-danger': !this.correct,
+                'bg-success': this.correct,
+                'text-light': true
+            }
 
         }
     }
