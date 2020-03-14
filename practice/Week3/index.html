@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <title>Week3 - Vue.js</title>
+   <meta charset="utf-8">
+   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   <script src="script.js" defer></script>
+</head>
+
+<body>
+   <div id="app">
+      <label>Enter your name:
+         <input type="text" v-model='playerName'>
+      </label>
+      <p v-if="playerName != '' "> Player: {{playerName}}</p>
+      <label>Enter your guess:
+         <input type="text" v-model='guess'>
+      </label>
+      <button v-on:click='guesses.push(guess)'>
+         Click </button>
+
+
+   </div>
+
+</body>
+
+
+</html>
