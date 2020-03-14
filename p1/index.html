@@ -14,7 +14,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
    <!-- <link rel="stylesheet" href="styles.css"> -->
-   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
+   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
    <script src="script.js" async defer></script>
 </head>
 
@@ -27,15 +27,14 @@
          <label>Count: <input type='number' v-model='challengeCount' min='1'></label>
          <button v-on:click="getChallengeNumbers">Submit digit count</button>
          <div v-if='canShowNumbers()'>
-            <h4>Please memorize the numbers in {{countdown}} seconds</h4>
-            <h5>{{timing}}</h5>
-
-            <ul>
-               <li v-for="adigit in numbersShown">{{adigit}}</li>
-            </ul>
+            <h4>Please memorize the numbers in {{5-timing}} seconds</h4>
+            <h6><span v-for="adigit in numbersShown">{{adigit}} </span></h6>
          </div>
-         <div v-else>
-
+         <div v-if>
+            <h6>Ok, time to test your recall</h6>
+            <label>Enter your numbers here:
+               <input type='text' v-model="guessString">
+            </label>
          </div>
 
       </div>

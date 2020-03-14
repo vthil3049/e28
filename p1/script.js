@@ -7,7 +7,9 @@ let app = new Vue({
       currentNumber: '',
       canShow: false,
       countdown: 5,
-      timing: null
+      timing: null,
+      guessString: '',
+      timesUp: false
 
    },
    methods: {
@@ -60,12 +62,13 @@ let app = new Vue({
                + minutes + "m " + seconds + "s ";
             currSeconds++;
             console.log(currSeconds);
-            this.timing = currSeconds;
+            app.timing = currSeconds;
 
             // If the count down is finished, write some text
             if (currSeconds >= 5) {
                console.log("done");
                clearInterval(x);
+               app.canShow = false;
 
             }
          }, 1000);
