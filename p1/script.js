@@ -67,9 +67,9 @@ let app = new Vue({
             // If the count down is finished, write some text
             if (currSeconds >= 5) {
                console.log("done");
-               clearInterval(x);
                app.canShow = false;
-
+               app.timesUp = true;
+               clearInterval(x);
             }
          }, 1000);
 

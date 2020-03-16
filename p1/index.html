@@ -13,27 +13,28 @@
    <meta name="description" content="">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-   <!-- <link rel="stylesheet" href="styles.css"> -->
+   <link rel="stylesheet" href="styles.css">
    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
    <script src="script.js" async defer></script>
 </head>
 
 <body>
-   <div class="container">
-      <h1>Memory Game</h1>
-      <div id='app' v-cloak>
-         <h4>Lets test your memory. <br>How many numbers can you memorize in 5 seconds?</h4>
+   <div class="container d-flex flex-column justify-content-center mr-auto ml-auto">
+      <h1 class="text-center">Memory Game</h1><br>
+      <div id='app' class="d-flex flex-column justify-content-center mr-auto ml-auto" v-cloak>
+         <h5>Lets test your memory. <br>How many numbers can you memorize in 5 seconds?</h5>
          <!-- <label>Item: <input type='text' v-model='itemName'></label><br> -->
-         <label>Count: <input type='number' v-model='challengeCount' min='1'></label>
-         <button v-on:click="getChallengeNumbers">Submit digit count</button>
+         <label>Count: <input type='number' v-model='challengeCount' min='1'>
+            <button @click="getChallengeNumbers">Submit digit count</button></label>
          <div v-if='canShowNumbers()'>
             <h4>Please memorize the numbers in {{5-timing}} seconds</h4>
-            <h6><span v-for="adigit in numbersShown">{{adigit}} </span></h6>
+            <h6><span v-for="adigit in numbersShown">{{adigit}}</span></h6>
          </div>
-         <div v-if>
+         <div v-else>
             <h6>Ok, time to test your recall</h6>
-            <label>Enter your numbers here:
+            <label>Enter your numbers here in the same order:
                <input type='text' v-model="guessString">
+               <button @click="checkEntry"></button>>Submit</button>
             </label>
          </div>
 
