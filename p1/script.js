@@ -34,6 +34,9 @@ let app = new Vue({
             this.countDownNumbers();
          }
       },
+      checkEntry: function () {
+         //compare numbers shown to current guess
+      },
       canShowNumbers: function () {
          return (this.numbersShown.length > 0 && this.canShow);
       },
