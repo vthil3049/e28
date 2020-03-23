@@ -1,3 +1,24 @@
+Vue.component('round-detail', {
+    data: function () {
+        return {
+            deleted: false
+        }
+    },
+    props: {
+        // `number` has an expected data type of Number, and it defaults to 0
+        count:0,
+        original:String,
+        guessString:String,
+        score: 0,
+        success:false,
+    },
+    template: '#round-detail',
+    methods: {
+
+    }
+})
+
+
 let app = new Vue({
   el: '#app',
   data: {
@@ -12,6 +33,7 @@ let app = new Vue({
     timesUp: false,
     correct: false,
     feedback: '',
+    totalScore:  0,
     attempts:[]
 
   },
@@ -64,21 +86,29 @@ let app = new Vue({
     },
     checkEntry: function () {
       //console.log(this.numbersShown.toString());
+      let attempt = {}
+      attempt.count= this.attempts.length+1;
       const reducer = (acc, curr) => acc.toString()+curr.toString();
       let strValue = this.numbersShown.reduce(reducer);
       //console.log('String is '+strValue)
       if (strValue == this.guessString){
         this.correct = true;
-        this.feedback = 'You remembered everything!'
+        this.feedback = 'You remembered everything! You win 1 point'
         console.log('guess is correct')
       }
       else {
         this.correct = false;
-        this.feedback = 'Minor setback! Maybe try again';
+        this.feedback = 'Thats incorrect - but its a minor setback! Please try again';
         console.log('guess is incorrect')
 
       }
-      //compare numbers shown to current guess
+      attempt.score = this.correct? 1: 0;
+      attempt.original= strValue.slice();
+      attempt.guessString = this.guessString.slice();
+      attempt.success = this.correct;
+      this.totalScore += attempt.score;
+      this.attempts.push(attempt);
+
     },
     canShowNumbers: function () {
       return (this.numbersShown.length > 0 && this.canShow);
