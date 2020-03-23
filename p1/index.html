@@ -18,19 +18,18 @@
   <script src="script.js" async defer></script>
 </head>
 <!-- v-for='attempt in attempts'
-  :key='attempt.count'
-  :original='attempt.original'
-  :guessString='attempt.guessString'
-  :score='attempt.score'
-  :success='attempt.success'> -->
+:key='attempt.count'
+:original='attempt.original'
+:guessString='attempt.guessString'
+:score='attempt.score'
+:success='attempt.success'> -->
 <body>
   <script type='text/x-template' id='round-detail'>
-    <div>
-      <ul>
-        <li>Round #: {{count}}</li>
-        <li>Score: {{ score }}</li>
-
-      </ul>
+    <div class="row text-light" :class="success?'bg-success':'bg-danger'">
+      <div class="col">{{count}}</div>
+      <div class="col">{{score}}</div>
+      <div class="col">{{original}}</div>
+      <div class="col">{{guessString}}</div>
     </div>
   </script>
   <h1 class="text-center">Memory Game</h1><br>
@@ -64,18 +63,36 @@
         </div>
         <div id="scoreboard" class="col-sm">
           <h2 class="text-center">Your score:{{totalScore}}</h2>
-          <round-detail
+
+          <div class="row">
+            <div class="col">#</div>
+            <div class="col">Score</div>
+            <div class="col">Original</div>
+            <div class="col">Guess</div>
+          </div>
+          <div>
+            <round-detail
             v-for='attempt in attempts'
-              :key='attempt.count'
-              :count='attempt.count'
-              :original='attempt.original'
-              :guess-string='attempt.guessString'
-              :score='attempt.score'
-              :success='attempt.success'>
-        </round-detail>
-      </div>
-    </div>
+            :key='attempt.count'
+            :count='attempt.count'
+            :original='attempt.original'
+            :guess-string='attempt.guessString'
+            :score='attempt.score'
+            :success='attempt.success'>
+          </round-detail>
+        </div>
+      <!-- <round-detail
+      v-for='attempt in attempts'
+      :key='attempt.count'
+      :count='attempt.count'
+      :original='attempt.original'
+      :guess-string='attempt.guessString'
+      :score='attempt.score'
+      :success='attempt.success'>
+    </round-detail> -->
   </div>
+</div>
+</div>
 </body>
 
 </html>
