@@ -1,7 +1,10 @@
 Vue.component('round-detail', {
     data: function () {
         return {
-            deleted: false
+            deleted: false,
+            getResult: function(){
+              return this.success;
+            }
         }
     },
     props: {
@@ -14,6 +17,9 @@ Vue.component('round-detail', {
     },
     template: '#round-detail',
     methods: {
+
+    },
+    computed:{
 
     }
 })
@@ -112,6 +118,11 @@ let app = new Vue({
     },
     canShowNumbers: function () {
       return (this.numbersShown.length > 0 && this.canShow);
+    },
+    getResult: function(correct)
+    {
+      return 'success';
+      //return correct?'<i class="fa fa-check"></i>':'<i class="fa fa-times-circle"></i>';
     },
     countDownNumbers: function () {
       // Set the date we're counting down to

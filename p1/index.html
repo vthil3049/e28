@@ -13,23 +13,26 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css " rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="script.js" async defer></script>
 </head>
-<!-- v-for='attempt in attempts'
-:key='attempt.count'
-:original='attempt.original'
-:guessString='attempt.guessString'
-:score='attempt.score'
-:success='attempt.success'> -->
+
 <body>
   <script type='text/x-template' id='round-detail'>
-    <div class="row text-light" :class="success?'bg-success':'bg-danger'">
+    <div class="row">
       <div class="col">{{count}}</div>
       <div class="col">{{score}}</div>
       <div class="col">{{original}}</div>
       <div class="col">{{guessString}}</div>
+      <!-- <div class="col" :class="success?'text-success':'text-danger'">{{success? 'Yay!!': 'Nay'}}</div> -->
+      <div v-if="success" class="col">
+        <i class="fa fa-check"></i>
+      </div>
+      <div v-else class="col">
+        <i class="fa fa-times-circle"></i>
+      </div>
     </div>
   </script>
   <h1 class="text-center">Memory Game</h1><br>
@@ -69,6 +72,7 @@
             <div class="col">Score</div>
             <div class="col">Original</div>
             <div class="col">Guess</div>
+            <div class="col">Result</div>
           </div>
           <div>
             <round-detail
@@ -81,17 +85,17 @@
             :success='attempt.success'>
           </round-detail>
         </div>
-      <!-- <round-detail
-      v-for='attempt in attempts'
-      :key='attempt.count'
-      :count='attempt.count'
-      :original='attempt.original'
-      :guess-string='attempt.guessString'
-      :score='attempt.score'
-      :success='attempt.success'>
-    </round-detail> -->
+        <!-- <round-detail
+        v-for='attempt in attempts'
+        :key='attempt.count'
+        :count='attempt.count'
+        :original='attempt.original'
+        :guess-string='attempt.guessString'
+        :score='attempt.score'
+        :success='attempt.success'>
+      </round-detail> -->
+    </div>
   </div>
-</div>
 </div>
 </body>
 
