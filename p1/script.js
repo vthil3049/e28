@@ -60,7 +60,7 @@ let app = new Vue({
   },
   methods: {
     restartGame: function(){
-      this.challengeCount = 0;
+      //this.challengeCount = 0;
       this.numbersShown= [];
       this.numbersGuessed= [];
       this.currentNumber= ''
