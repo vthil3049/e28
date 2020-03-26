@@ -69,6 +69,9 @@ let app = new Vue({
       this.correct= false;
       this.feedback= '';
     } ,
+    resetScores: function(){
+      this.attempts =[];
+    },
     getRandomIntInclusive: function (min, max) {
       min = Math.ceil(min);
       max = Math.floor(max);

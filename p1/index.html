@@ -26,12 +26,9 @@
       <div class="col">{{score}}</div>
       <div class="col">{{original}}</div>
       <div class="col">{{guessString}}</div>
-      <!-- <div class="col" :class="success?'text-success':'text-danger'">{{success? 'Yay!!': 'Nay'}}</div> -->
-      <div v-if="success" class="col">
-        <i class="fa fa-check"></i>
-      </div>
-      <div v-else class="col">
-        <i class="fa fa-times-circle"></i>
+      <div class="col text-center">
+        <slot v-if="success" name="success"></slot>
+        <slot v-else name="failure"></slot>
       </div>
     </div>
   </script>
@@ -66,6 +63,9 @@
         </div>
         <div id="scoreboard" class="col-sm">
           <h2 class="text-center">Your score:{{totalScore}}</h2>
+          <div class="text-center">
+            <button  @click="resetScores">Reset</button>
+          </div>
 
           <div class="row">
             <div class="col">#</div>
@@ -73,6 +73,7 @@
             <div class="col">Original</div>
             <div class="col">Guess</div>
             <div class="col">Result</div>
+
           </div>
           <div>
             <round-detail
@@ -83,6 +84,8 @@
             :guess-string='attempt.guessString'
             :score='attempt.score'
             :success='attempt.success'>
+            <template v-slot:success><i class="fa fa-check text-success"></i></template>
+            <template v-slot:failure><i class="fa fa-times text-danger"></i></template>
           </round-detail>
         </div>
         <!-- <round-detail
