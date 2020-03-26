@@ -28,7 +28,7 @@ Vue.component('round-detail', {
 let app = new Vue({
   el: '#app',
   data: {
-    challengeCount: 0,
+    //challengeCount: 0,
     numbersShown: [],
     numbersGuessed: [],
     currentNumber: '',
@@ -40,8 +40,8 @@ let app = new Vue({
     correct: false,
     feedback: '',
     totalScore:  0,
-    attempts:[]
-
+    attempts:[],
+    selectionLevel:1
   },
   computed: {
     newGame: function(){
@@ -53,6 +53,9 @@ let app = new Vue({
         'bg-success': this.correct,
         'text-light': true
       }
+    },
+    challengeCount: function(){
+      return this.selectionLevel*2 + 2;
     }
   },
   methods: {
@@ -71,6 +74,7 @@ let app = new Vue({
     } ,
     resetScores: function(){
       this.attempts =[];
+      this.totalScore=0;
     },
     getRandomIntInclusive: function (min, max) {
       min = Math.ceil(min);
@@ -102,7 +106,7 @@ let app = new Vue({
       //console.log('String is '+strValue)
       if (strValue == this.guessString){
         this.correct = true;
-        this.feedback = 'You remembered everything! You win 1 point'
+        this.feedback = 'You remembered everything! Awesome!!'
         console.log('guess is correct')
       }
       else {
@@ -111,7 +115,7 @@ let app = new Vue({
         console.log('guess is incorrect')
 
       }
-      attempt.score = this.correct? 1: 0;
+      attempt.score = this.correct? this.selectionLevel: 0;
       attempt.original= strValue.slice();
       attempt.guessString = this.guessString.slice();
       attempt.success = this.correct;
