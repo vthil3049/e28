@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Project 1</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css " rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="script.js" async defer></script>
+</head>
+
+<body>
+  <script type='text/x-template' id='round-detail'>
+    <div class="row">
+      <div class="col">{{count}}</div>
+      <div class="col">{{score}}</div>
+      <div class="col">{{original}}</div>
+      <div class="col">{{guessString}}</div>
+      <div class="col text-center">
+        <slot v-if="success" name="success"></slot>
+        <slot v-else name="failure"></slot>
+      </div>
+    </div>
+  </script>
+  <h1 class="text-center">Memory Game</h1><br>
+  <div id='app' class="container-fluid">
+    <div class="row">
+      <div id="game" class="col-sm card">
+        <h2 class="text-center">Game on! &#x1F0A1;</h2>
+        <h2 class="display-1 text-danger"> <span v-for="card in cards">{{card}}</span></h2>
+        <div class="container d-flex flex-column justify-content-center mr-auto ml-auto">
+          <div class="d-flex flex-column justify-content-center mr-auto ml-auto" v-cloak>
+            <h5 class='text-center'>
+              Lets test your memory.<br />
+              How many numbers can you memorize in 5 seconds?<br />
+            </h5>
+            <h6  class='text-center '>
+              Select your challenge level to score points:<br /><br />
+              <mark>1 - Easy, 2-Medium, 3-Hard, 4-CrazyHard</mark><br />
+            </h6>
+            <select v-model="selectionLevel">
+              <!-- inline object literal -->
+              <option v-bind:value="1">Easy(4 digits)</option>
+              <option v-bind:value="2">Medium(6 digits)</option>
+              <option v-bind:value="3">Hard(8 digits)</option>
+              <option v-bind:value="4">CrazyHard(10 digits)</option>
+            </select><br />
+            <h5>Memorize {{challengeCount}} numbers in 5 seconds</h5>
+            <!-- <label>Item: <input type='text' v-model='itemName'></label><br> -->
+            <!-- Count: <input type='number' v-model='challengeCount' min='1'> -->
+              <button @click="getChallengeNumbers" :disabled="numbersShown.length > 0">Ready!</button>
+              <div v-if='newGame'>
+                <h4>Please memorize the numbers below in {{5-timing}} seconds</h4>
+                <h5 class="text-center text-primary"><span v-for="adigit in numbersShown">{{adigit}}</span></h5>
+              </div>
+              <div v-if='timesUp'>
+                <h6 class="text-center">Ok, time to test your recall</h6>
+                <label>Enter your numbers here in the same order:
+                  <input type='text' v-model="guessString" @keypress.enter="checkEntry">
+                  <button @click="checkEntry" :disabled="feedback.length > 0">Submit</button>
+                </label><br />
+                <div id='feedback' v-if="feedback.length > 0" class="text-center">
+                  <div :class="feedBackObject">{{ feedback }}</div><br />
+                  <button @click="restartGame">Try again!</button>
+                </div>
+              </div>
+            </div>
+          </div> <!-- container -->
+        </div>
+        <div id="scoreboard" class="col-sm">
+          <h2 class="text-center">Your score:{{totalScore}}</h2>
+          <div class="text-center">
+            <button  @click="resetScores">Reset</button>
+          </div>
+
+          <div class="row font-weight-bold">
+            <div class="col">#</div>
+            <div class="col">Score</div>
+            <div class="col">Original</div>
+            <div class="col">Guess</div>
+            <div class="col">Result</div>
+
+          </div>
+          <div>
+            <round-detail
+            v-for='attempt in attempts'
+            :key='attempt.count'
+            :count='attempt.count'
+            :original='attempt.original'
+            :guess-string='attempt.guessString'
+            :score='attempt.score'
+            :success='attempt.success'>
+            <template v-slot:success><i class="fa fa-check text-success"></i></template>
+            <template v-slot:failure><i class="fa fa-times text-danger"></i></template>
+          </round-detail>
+        </div>
+        <!-- <round-detail
+        v-for='attempt in attempts'
+        :key='attempt.count'
+        :count='attempt.count'
+        :original='attempt.original'
+        :guess-string='attempt.guessString'
+        :score='attempt.score'
+        :success='attempt.success'>
+      </round-detail> -->
+    </div>
+  </div>
+</div>
+</body>
+
+</html>
