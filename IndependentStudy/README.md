@@ -5,9 +5,9 @@ Javascript originated in 1995 for the popular NetScape browser. NetScape partner
 The original intent of Javascript was as a scripting language for use in browsers, which were applications that provided the front end GUI on any platform. This inherent feature of ECMAScript made it an ideal candidate for creating platform agnostic applications on and off the web.
 
 So, besides the web, ECMAScript family of languages can be used to create:
-- mobile applications
-- desktop applications
-- and even command line applications
+1. **mobile applications**
+2. **desktop applications**
+3. **and even command line applications**
 
 ## 1. Mobile applications
 There are a number of hybrid mobile application frameworks available on the market which leverage the Webview in a mobile device, that works with HTML5, CSS and Javascript. Developers write to one single code base and the apps would look and work the same way on both Android and iOS devices. One easy to learn codebase, that works on the 2 most popular mobile platforms! While they may not be as performant as a native application, the reduced lead time to enter the market, is the most attractive part of the hybrid mobile frameworks. The most widely used are Ionic, Flutter and React Native.
