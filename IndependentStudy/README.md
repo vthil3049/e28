@@ -21,9 +21,11 @@ Plugins are installed via [Cordova](https://cordova.apache.org/) or [Capacitor](
 
 Ionic has many built in UI components that help quickly construct an UI for the app and the interactions can be customized using the APIs for the components. Scaffolding and starting an app is easily done via a Command Line Interface(CLI).
 
+**Sample Ionic App**
+
 ![Image of an Ionic App](./Ionic-Sample.png "Sample Ionic App View")
 
-Sample Ionic App
+
 ### 1.2 Flutter
 (TBD - need to research Google Flutter)
 
@@ -38,9 +40,16 @@ ElectronJS uses [Chromium](https://www.chromium.org/) which is the open source b
 
 Architecture - ElectronJS App has a single Main Process that executes the Javascript that can create and run multiple Renderer Processes which are akin to multiple web pages running in its own process.  Communication between the Main and Renderer process is through an ipcMain module and ipcRenderer module.
 
+**ElectronJS Architecture**
+
 <img src="./Electron-Arch.png" width="400">
 
-**ElectronJS Architecture**
+## 3.0 Command Line tools
+
+In spite of all the possibilities for developing GUI applications using the ECMAScript family of GUI frameworks, there still exists a need for Command Line Interface(CLI) applications. Typically the CLI of an Operating System will be proprietary. So, to develop a platform independent CLI, a NodeJS based framework like [oclif](https://oclif.io/) can be useful.
+
+Its possible to build single or multi-line CLI commands and pass in flags and other command line arguments. Oclif commands have code behind them, written in either TypeScript or Javascript. Plugins can be used to extend or share functionality between the various CLIs.
+
 
 ## links
 https://www.w3schools.com/js/js_versions.asp
@@ -50,4 +59,7 @@ https://medium.com/@benastontweet/lesson-1a-the-history-of-javascript-8c1ce3bffb
 https://captechconsulting.com/blogs/mobile-app-architecture-native-hybrid-and-common-misconceptions
 
 https://ionicframework.com/docs/
+
 https://medium.com/developers-writing/building-a-desktop-application-with-electron-204203eeb658
+
+https://oclif.io
