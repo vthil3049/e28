@@ -8,11 +8,14 @@
   </div>
 </template>
 <script>
+import {products} from './../products.js';
 export default {
   name: '',
-  props: ['category', 'products'],
+  props: ['category'],
   data: function() {
-    return {};
+    return {
+      products: products
+    };
       },
       computed: {
         featuredProducts: function() {

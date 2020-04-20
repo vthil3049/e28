@@ -6,16 +6,18 @@
   </div>
 </template>
 <script>
-import ShowProduct from "./ShowProduct.vue";
-
+import ShowProduct from "../ShowProduct.vue";
+import {products} from './../../products.js';
 export default {
   name: "",
   components: {
     "show-product": ShowProduct
   },
-  props: ['products'],
+  props: [],
   data: function() {
-    return { }
+    return {
+    products: products
+   }
   }
 };
 </script>
