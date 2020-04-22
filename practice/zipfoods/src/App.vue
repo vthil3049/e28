@@ -16,7 +16,14 @@
 </template>
 
 <script>
-import {products} from './products.js';
+// import {products} from './products.js';
+
+// Firebase App (the core Firebase SDK) is always required and must be listed first
+import * as firebase from 'firebase/app';
+
+// Add the Firebase products that you want to use
+import 'firebase/firestore';
+
 export default {
   name: "App",
   components: {
@@ -25,9 +32,32 @@ export default {
   data: function(){
     return {
       links: ['home', 'products', 'categories'],
-      products: products,
+      // products: products,
       page: 'home'
     };
+  },
+  mounted: function() {
+    // Initialize firebase
+    let projectId = 'e28-zipfoods-28f2b';
+    firebase.initializeApp({
+      apiKey: 'AIzaSyAmJzGwjImnS-Tz5txuJ-w9B-fpsQfdWIU',
+      authDomain: projectId + '.firebaseapp.com',
+      databaseURL: 'https://' + projectId + '.firebaseio.com',
+      projectId: projectId,
+    });
+
+    // Initialize firestore
+    let api = firebase.firestore();
+    api.collection('products')
+      .where('price', '<', 5.99)
+      .get()
+      .then(function(querySnapshot) {
+          console.log(querySnapshot.docs.shift().data());
+      })
+      .catch(function(error) {
+          console.log('Error getting documents: ' + error);
+      });
+
   }
 }
 </script>

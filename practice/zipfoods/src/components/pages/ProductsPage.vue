@@ -7,7 +7,8 @@
 </template>
 <script>
 import ShowProduct from "../ShowProduct.vue";
-import {products} from './../../products.js';
+const axios = require('axios');
+// import {products} from './../../products.js';
 export default {
   name: "",
   components: {
@@ -16,8 +17,18 @@ export default {
   props: [],
   data: function() {
     return {
-    products: products
+    products: []
    }
+  },
+  mounted: function() {
+    axios
+    .get(
+        'https://my-json-server.typicode.com/susanBuck/e28-zipfoods-api/products'
+    )
+    .then(response => {
+
+        this.products = response.data;
+    });
   }
 };
 </script>
