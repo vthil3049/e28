@@ -16,9 +16,11 @@
         </div>
         <div class="col-sm">
           <h4 class='text-center'>Students</h4>
-          <li v-for="student in studentList" v-bind:key="student.name"  class="list-group-item">
-            {{student.name}}, Grade:{{student.grade}}
-          </li>
+          <ul  class="list-group">
+            <li v-for="student in studentList" v-bind:key="student.name"  class="list-group-item">
+              {{student.name}}, Grade:{{student.grade}}
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -51,7 +53,7 @@ export default {
       this.staffList.push(faker.name.findName());
     }
     for(let i=0; i < this.studentCount; i++){
-      this.studentList.push({'name':faker.name.firstName()+" "+faker.name.lastName(), 'grade': getRndInteger(9,12)});
+      this.studentList.push({'name':faker.name.firstName()+' '+faker.name.lastName(), 'grade': getRndInteger(9,12)});
     }
 
   }

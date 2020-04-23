@@ -1,22 +1,23 @@
 <template>
   <div class='text-center'>
-    This is the footer
+    Copyright &copy; - Nashua High School, New Hampshire {{getCopyRightYear()}}<br />
   </div>
 </template>
 
 <script>
 export default {
   name: 'FooterPage',
-  props: {
-    msg: String
-  },
   data: function(){
     return {
 
     }
   },
   methods:{
-
+    getCopyRightYear: function()
+    {
+      let today = new Date();
+      return today.getFullYear().toString();
+    }
   },
   mounted: function() {
 

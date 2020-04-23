@@ -10,13 +10,16 @@
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
       </nav>
     </div>
+    <ProgramPage></ProgramPage>
     <CreditsPage></CreditsPage>
+    <br />
     <FooterPage></FooterPage>
   </div>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
+import ProgramPage from './components/ProgramPage.vue'
 import CreditsPage from './components/CreditsPage.vue'
 import HomePage from './components/HomePage.vue'
 import FooterPage from './components/FooterPage.vue'
@@ -26,7 +29,8 @@ export default {
     // HelloWorld,
     HomePage,
     CreditsPage,
-    FooterPage
+    FooterPage,
+    ProgramPage
   }
 }
 </script>
