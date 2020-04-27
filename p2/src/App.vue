@@ -1,17 +1,18 @@
 <template>
   <div id="app" class="container">
-
-    <HomePage msg="Now Playing"/>
+    <HeaderPage></HeaderPage>
     <div class='text-center'>
-      <nav class="nav">
-        <a class="nav-link active" href="#">Active</a>
-        <a class="nav-link" href="#">Link</a>
-        <a class="nav-link" href="#">Link</a>
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </nav>
+      <nav>
+          <ul class="nav  justify-content-center">
+            <li v-for='link in links' :key='link'  class="nav-item">
+              <router-link :to='{name: link}' exact  class="nav-link text-danger active">{{ link.toUpperCase()}}</router-link>
+            </li>
+          </ul>
+        </nav>
+      <router-view></router-view>
     </div>
-    <ProgramPage></ProgramPage>
-    <CreditsPage></CreditsPage>
+    <!-- <ProgramPage></ProgramPage>
+    <CreditsPage></CreditsPage> -->
     <br />
     <FooterPage></FooterPage>
   </div>
@@ -19,18 +20,21 @@
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
-import ProgramPage from './components/ProgramPage.vue'
-import CreditsPage from './components/CreditsPage.vue'
-import HomePage from './components/HomePage.vue'
+// import ProgramPage from './components/ProgramPage.vue'
+// import CreditsPage from './components/CreditsPage.vue'
+// import HomePage from './components/HomePage.vue'
+import HeaderPage from './components/HeaderPage.vue'
 import FooterPage from './components/FooterPage.vue'
 export default {
   name: 'App',
   components: {
-    // HelloWorld,
-    HomePage,
-    CreditsPage,
+    HeaderPage,
     FooterPage,
-    ProgramPage
+  },
+  data: function(){
+    return {
+      links:  ['home', 'program', 'credits'],
+    }
   }
 }
 </script>

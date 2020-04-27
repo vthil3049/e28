@@ -1,13 +1,27 @@
 <!-- <a target="_blank" href="https://icons8.com/icons/set/music">Music icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
 <template>
-  <div class='text-center'>
+  <div>
     <h4 class='text-center'>Items</h4>
-    <ul  class="list-group">
-      <li v-for="item in items" v-bind:key="item.name"  class="list-group-item">
-        {{item.title}}
-      </li>
-    </ul>
-
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Type</th>
+          <th scope="col">Performers</th>
+          <th scope="col">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(item, index) in items" v-bind:key="item.name">
+          <th scope="row">{{index+1}}</th>
+          <td>{{item.title}}</td>
+          <td>{{item.type}}</td>
+          <td>{{getPerformers(item)}}</td>
+          <td>{{item.description}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
@@ -24,18 +38,26 @@ export default {
     return {
       title: "Program",
       items: items
-
+    }
+  },
+  methods: {
+    getPerformers: function(item){
+      let performerNames='';
+      if (item.performers.length == 1){
+        performerNames= item.performers[0];
+      }
+      else {
+        for (let i=0; i < item.performers.length; i++){
+          let nextPerformer = item.performers[i];
+          performerNames += (i > 0)?',':'';
+          performerNames += nextPerformer;
+        }
+      }
+      return performerNames;
     }
   },
   mounted: function() {
     console.log(items);
-    // this.items = items;
-    // // console.log(this.items);
-    // for(let i=0; i < items.length; i++){
-    //   console.log(items[i].name);
-    // }
-
-
   }
 }
 </script>
