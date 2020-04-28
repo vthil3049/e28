@@ -1,6 +1,6 @@
 <template>
   <div class='text-center'>
-    Copyright &copy; - Nashua High School, New Hampshire {{getCopyRightYear()}}<br />
+    Copyright &copy; - Gate City Events, New Hampshire {{getCopyRightYear()}}<br />
   </div>
 </template>
 

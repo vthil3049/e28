@@ -1,7 +1,8 @@
 <template>
   <div class='jumbotron text-center'>
-    <h1 class="display-4">Spring 2020 High School Talent Show</h1>
-    <p><small>Hosted by: Nashua High School</small></p>
+    <h2 class="display-4 text-primary">Middle School Talent Show</h2>
+    <h4>Nashua, New Hampshire</h4>
+    <p><small>Hosted by: City of Nashua</small></p>
   </div>
 </template>
 
