@@ -42,6 +42,11 @@
               </tr>
             </tbody>
           </table>
+          <div class='text-info'>
+            <address>
+              For tickets email <a href="mailto:gsylvie@example.com">Mrs.Gail Sylvie</a>.<br>
+            </address>
+          </div>
         </div>
       </div>
     </div>

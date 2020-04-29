@@ -17,6 +17,12 @@ body {
   }
 
 ul.nav {
-  background-color: #E9ECEF;
-  border: 1px dotted lightgray;
+  // background-color: #E9ECEF;
+  // border: 1px dotted lightgray;
+  height: 60px;
+  padding-top: 15px;
+}
+a.router-link-exact-active{
+    background-color: #2d083b;
+    color: maroon;
 }

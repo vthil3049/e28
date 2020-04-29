@@ -1,8 +1,7 @@
 <template>
   <div class='jumbotron text-center'>
-    <h2 class="display-4 text-primary">Middle School Talent Show</h2>
+    <h2 class="display-4 text-info">Middle School Talent Show</h2>
     <h4>Nashua, New Hampshire</h4>
-    <p><small>Hosted by: City of Nashua</small></p>
   </div>
 </template>
 
