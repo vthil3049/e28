@@ -28,6 +28,7 @@
 <script>
 //const {items}('../common/program.json');
 import items from '@/common/program.json';
+import * as utils from '@/common/utils';
 
 export default {
   name: 'ProgramPage',
@@ -58,6 +59,9 @@ export default {
   },
   mounted: function() {
     console.log(items);
+    let program = utils.getProgram();
+    this.items = program;
+    console.log("Final program is ", program);
   }
 }
 </script>

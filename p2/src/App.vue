@@ -24,10 +24,11 @@
 // import CreditsPage from './components/CreditsPage.vue'
 // import HomePage from './components/HomePage.vue'
 // Firebase App (the core Firebase SDK) is always required and must be listed first
-import * as firebase from 'firebase/app';
-
-// Add the Firebase products that you want to use
-import 'firebase/firestore';
+// import * as firebase from 'firebase/app';
+//
+// // Add the Firebase products that you want to use
+// import 'firebase/firestore';
+import * as utils from '@/common/utils'
 import HeaderPage from './components/HeaderPage.vue'
 import FooterPage from './components/FooterPage.vue'
 export default {
@@ -39,50 +40,15 @@ export default {
   data: function(){
     return {
       links:  ['home', 'program', 'credits'],
+      program: null
     }
   },
   mounted: function()
   {
-    // Initialize firebase
-    let projectId = 'e28-talent-show';
-    if (!firebase.apps.length){
-      firebase.initializeApp({
-        apiKey: 'AIzaSyCkaZeNdz_IUsGUUwR_y6U-Vywo7Bg0tW4',
-        authDomain: projectId + '.firebaseapp.com',
-        databaseURL: 'https://' + projectId + '.firebaseio.com',
-        projectId: projectId,
-      });
-    }
-    // Initialize firestore
-    let api = firebase.firestore();
-    api.collection('items')
-    .doc('j0JO13wdDXqpuF5czM4r')
-    .get()
-    .then(function(doc) {
-      console.log(doc.data());
-    })
-    .catch(function(error) {
-      console.log('Error getting documents: ' + error);
-    });
+    utils.initFirebase();
+    // utils.seedProgram();
+    utils.refreshProgram();
 
-    // api.collection("items").add({
-    //   "title": "Twirlers",
-    //   "type": "dance",
-    //   "description":"Aerobatic dance",
-    //   "performers": ["Helen Pittman", "Mandy Travis"]
-    // })
-    // .then(function(docRef) {
-    //   console.log("Document written with ID: ", docRef.id);
-    // })
-    // .catch(function(error) {
-    //   console.error("Error adding document: ", error);
-    // });
-    api.collection("items").get().then((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data().title}`);
-        console.log(JSON.stringify(doc.data()));
-    });
-});
   }
 }
 </script>

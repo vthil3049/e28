@@ -1,24 +1,33 @@
-# p2
+*Any instructions/notes in italics should be removed from the template before submitting*
 
-## Project setup
-```
-npm install
-```
+# Project 2
++ By: Vani Thilagar
++ Production URL: <http://e28p2.thilagar.com>
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+The intent is for this app to function as a Flyer/Brochure for a school talent show.
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Lints and fixes files
-```
-npm run lint
-```
+## Pages summary
+1. The Home page gives some Advertising blurb with details for the show.
+2. The Program page shows the list of items, their description and performers that will perform on the day of the event.
+3. The CreditsPage is a fictitious list of people(Adult staff + students) who are responsible for organizing the show
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## SFC summary
+1. App.Vue - contains header and footer pages + router-outlet
+2. HeaderPage.Vue - common header
+3. FooterPage.Vue - common footer
+4. HomePage.vue - Landing page
+5. ProgramPage.vue - List of items
+5. CreditsPage.vue - Event day credits
+
+## Server interaction
+1. App.vue - on mounting, calls utils.js method to
+* init firebase
+* refresh the data model (program) - this calls the Firebase backend to get the list of items
+2. ProgramPage.vue - on mounting calls utils.js to retrieve the current data model (program)
+
+## Outside resources
+Used **faker** - https://www.npmjs.com/package/faker for generating names in the Credits Page. Notice the names change when you refresh that page :)
+
+
+## Notes for instructor
