@@ -1,6 +1,7 @@
 <template>
   <div class='text-center'>
     Copyright &copy; - Gate City Events, New Hampshire {{getCopyRightYear()}}<br />
+    Homepage video by <a href="https://www.postermywall.com/" target="_blank">www.postermywall.com</a>
   </div>
 </template>
 

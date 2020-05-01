@@ -41,7 +41,7 @@ export default {
     return {
       title: "Now Playing",
       credits: "Thanks to the staff",
-      staffCount: 6,
+      staffCount: 8,
       studentCount: 8,
       staffList:[],
       studentList:[]

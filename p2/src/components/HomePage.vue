@@ -3,13 +3,11 @@
     <h2>{{ title }}</h2>
     <h4>{{event_date}} at Nashua High School North Auditorium</h4>
     <h6 class='text-center text-danger'>Come see our talented students in action with a half hour musical by our talented teachers too</h6>
-    <h6>Start time: 3:00 pm sharp</h6>
-    <h6>Seating begins at 2:30pm</h6>
-
+    <h5 class="text-info font-weight-bold">Start time: 3:00 pm sharp. Seating begins at 2:30pm</h5>
     <div class="event-details container-fluid row">
       <div class="col-sm">
         <video width="480"  autoplay loop>
-          <source src="../assets/SchoolTalentShowSquareVideo-MadewithPosterMyWall.mp4" type="video/mp4">
+          <source src="@/assets/SchoolTalentShowSquareVideo-MadewithPosterMyWall.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
