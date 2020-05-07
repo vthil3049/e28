@@ -31,7 +31,7 @@ export default {
   },
   data: function(){
     return {
-      links: ['home', 'products', 'categories'],
+      links: ['home', 'products', 'categories', 'add a product'],
       // products: products,
       page: 'home'
     };
@@ -49,10 +49,10 @@ export default {
     // Initialize firestore
     let api = firebase.firestore();
     api.collection('products')
-      .where('price', '<', 5.99)
+      .doc('1P4tR6PvsHtZl68O12YI')
       .get()
-      .then(function(querySnapshot) {
-          console.log(querySnapshot.docs.shift().data());
+      .then(function(doc) {
+          console.log(doc.data());
       })
       .catch(function(error) {
           console.log('Error getting documents: ' + error);

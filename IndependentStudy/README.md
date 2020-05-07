@@ -24,7 +24,7 @@ Ionic has many built in UI components that help quickly construct an UI for the 
 
 **Sample Ionic App**
 
-![Image of an Ionic App](./Ionic-Sample.png "Sample Ionic App View")
+![Image of an Ionic App](images/Ionic-Sample.png "Sample Ionic App View")
 
 
 ### 1.2 React Native
@@ -35,7 +35,7 @@ React and React Native use JSX, a syntax that allows us to write nested elements
 
 The basic building block of React Native is a view that displays content like text, images and other form controls. Its possible to nest the views and create more complex layouts.
 
-<img src="./ReactCore Components.png" width="400">
+<img src="images/ReactCore Components.png" width="400">
 
 **Comparison of views using React core components**
 
@@ -62,7 +62,7 @@ Architecture - ElectronJS App has a single Main Process that executes the Javasc
 
 **ElectronJS Architecture**
 
-<img src="./Electron-Arch.png" width="400">
+<img src="images/Electron-Arch.png" width="400">
 
 ## 3.0 Game development
 With the increase in speeds and capabilities of the client hardware and browser, there are a number of Game Development engines for Javascript. These typically take advantage of the Javascript WebGL Application Programming Interface(API) to render complex 2D and #D graphics for gaming.
@@ -72,6 +72,12 @@ Two of the most popular among them are Phaser.js(2D) and Babylon.js(3D)
 * [Phaser.js](https://phaser.io/) is easy for beginners to get started, as there are plenty of examples to use. Phaser supports both the HTML5 Canvas as well as WebGL for rendering and switch between them, if the browsers support it. Hence, the rendering is speeded up across desktop and mobile devices.
 
 * [Babylon.js](https://www.babylonjs.com/) lets developers create amazing 3D games. A friendly Node Material Editor, leverages the GPU in the local system for the graphics rendering.
+
+<img src="images/Babylon.js Documentation.png" width="400">  
+
+
+<img src="images/Charts-Babylon.js Documentation.png" width="400">
+
 The link below contains numerous examples of the graphics developed in the Babylon.JS
 [3D effects samples](https://www.babylonjs.com/games/)
 
