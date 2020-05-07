@@ -73,10 +73,10 @@ Two of the most popular among them are Phaser.js(2D) and Babylon.js(3D)
 
 * [Babylon.js](https://www.babylonjs.com/) lets developers create amazing 3D games. A friendly Node Material Editor, leverages the GPU in the local system for the graphics rendering.
 
-<img src="images/Babylon.js Documentation.png" width="400">  
+<img src="images/Babylon.js Documentation.png" style="float: right;" width="400">  
 
 
-<img src="images/Charts-Babylon.js Documentation.png" width="400">
+<img src="images/Charts-Babylon.js Documentation.png" style="float: right;" width="400">
 
 The link below contains numerous examples of the graphics developed in the Babylon.JS
 [3D effects samples](https://www.babylonjs.com/games/)
