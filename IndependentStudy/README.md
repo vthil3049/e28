@@ -60,9 +60,11 @@ ElectronJS uses [Chromium](https://www.chromium.org/) which is the open source b
 
 Architecture - ElectronJS App has a single Main Process that executes the Javascript that can create and run multiple Renderer Processes which are akin to multiple web pages running in its own process.  Communication between the Main and Renderer process is through an ipcMain module and ipcRenderer module.
 
+The ipcMain process is analogous to server side code in a web application and the ipcRenderer is similar in behavior to the GUI front end of a web application. Hence the ipcRenderer processes, typically cannot directly access the local file system and other resources. So an Inter Process Communication is required for the processes to interact.
+
 **ElectronJS Architecture**
 
-<img src="images/Electron-Arch.png" width="400">
+<img src="images/electronJS.png" width="400">
 
 ## 3.0 Game development
 With the increase in speeds and capabilities of the client hardware and browser, there are a number of Game Development engines for Javascript. These typically take advantage of the Javascript WebGL Application Programming Interface(API) to render complex 2D and #D graphics for gaming.
@@ -71,12 +73,11 @@ Two of the most popular among them are Phaser.js(2D) and Babylon.js(3D)
 
 * [Phaser.js](https://phaser.io/) is easy for beginners to get started, as there are plenty of examples to use. Phaser supports both the HTML5 Canvas as well as WebGL for rendering and switch between them, if the browsers support it. Hence, the rendering is speeded up across desktop and mobile devices.
 
-* [Babylon.js](https://www.babylonjs.com/) lets developers create amazing 3D games. A friendly Node Material Editor, leverages the GPU in the local system for the graphics rendering.
+* [Babylon.js](https://www.babylonjs.com/) lets developers create amazing 3D games and presentations. A friendly Node Material Editor, uses the GPU in the local system for the advanced graphics rendering.
 
-<img src="images/Babylon.js Documentation.png" style="float: right;" width="400">  
+<img src="images/Babylon.js Documentation.png" style="float: right;" width="400"><img src="images/Charts-Babylon.js Documentation.png" style="float: right;" width="400">
 
-
-<img src="images/Charts-Babylon.js Documentation.png" style="float: right;" width="400">
+**Examples of Babylon's graphics capabilities**
 
 The link below contains numerous examples of the graphics developed in the Babylon.JS
 [3D effects samples](https://www.babylonjs.com/games/)
