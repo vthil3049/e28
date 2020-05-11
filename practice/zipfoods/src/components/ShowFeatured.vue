@@ -8,7 +8,7 @@
   </div>
 </template>
 <script>
-import {products} from './../products.js';
+import {products} from './../common/products.js';
 export default {
   name: '',
   props: ['category'],

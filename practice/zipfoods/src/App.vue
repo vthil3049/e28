@@ -7,7 +7,8 @@
     <nav>
       <ul>
         <li v-for='link in links' :key='link'>
-          <router-link :to='{name: link}' exact>{{ link }}</router-link>
+          <router-link :to='{name: link}' exact>{{ link }}<span v-if='link == "cart"'>({{sharedState.cartCount }})</span>
+          </router-link>
         </li>
       </ul>
     </nav>
@@ -16,13 +17,7 @@
 </template>
 
 <script>
-// import {products} from './products.js';
-
-// Firebase App (the core Firebase SDK) is always required and must be listed first
-import * as firebase from 'firebase/app';
-
-// Add the Firebase products that you want to use
-import 'firebase/firestore';
+import * as app from '@/common/app.js';
 
 export default {
   name: "App",
@@ -31,33 +26,16 @@ export default {
   },
   data: function(){
     return {
-      links: ['home', 'products', 'categories', 'add a product'],
+      links: ['home', 'products', 'categories', 'add a product', 'admin','cart'],
       // products: products,
-      page: 'home'
+      page: 'home',
+      sharedState: app.store
     };
   },
   mounted: function() {
-    // Initialize firebase
-    let projectId = 'e28-zipfoods-28f2b';
-    firebase.initializeApp({
-      apiKey: 'AIzaSyAmJzGwjImnS-Tz5txuJ-w9B-fpsQfdWIU',
-      authDomain: projectId + '.firebaseapp.com',
-      databaseURL: 'https://' + projectId + '.firebaseio.com',
-      projectId: projectId,
-    });
 
-    // Initialize firestore
-    let api = firebase.firestore();
-    api.collection('products')
-      .doc('1P4tR6PvsHtZl68O12YI')
-      .get()
-      .then(function(doc) {
-          console.log(doc.data());
-      })
-      .catch(function(error) {
-          console.log('Error getting documents: ' + error);
-      });
-
+    let cart = new app.Cart();
+    app.store.cartCount = cart.count();
   }
 }
 </script>

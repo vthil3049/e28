@@ -116,9 +116,9 @@ PAGE SPECIFIC
     .product {
         width: 75%;
         margin: auto;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         border: 1px solid black;
-        padding: 20px;
+        padding: 0px;
 
         .product-name {
             font-weight: bold;
@@ -127,7 +127,8 @@ PAGE SPECIFIC
         }
 
         .product-thumb {
-            width: 200px;
+            width: 100px;
+  
         }
 
         .product-description {
@@ -153,7 +154,7 @@ PAGE SPECIFIC
 
 #product-page {
     img {
-        width: 200px;
+        width: 100px;
     }
 
     .description {
