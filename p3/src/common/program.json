@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Grand Opening",
+    "type": "band",
+    "description": "National anthem followed by Victory March",
+    "performers": ["Honors Jazz Band"]
+  },
+  {
+    "title": "Twirlers",
+    "type": "dance",
+    "description":"Aerobatic dance",
+    "performers": ["Helen Pittman", "Mandy Travis"]
+  },
+  {
+    "title": "Carolina in the morning",
+    "type": "vocal",
+    "description":"Lyrics by Gus Kahn and music by Walter Donaldson",
+    "performers": ["Maurice Biggs"]
+  },
+  {
+    "title": "Darktown Strutters Ball",
+    "type": "dance",
+    "description":"by Shelton Brooks",
+    "performers": ["Glenn Yarbrough", "Kris Carter", "Amya Rath", "Elena Feil"]
+  },
+  {
+    "title": "Barbershop Quartet",
+    "type": "vocal",
+    "description":"by the Rockland Crooners",
+    "performers": ["Sidney McKinney", "Dwight Malone", "George Grimes", "Billy Wooley"]
+  },
+  {
+    "title": "Louisiana Hayride",
+    "type": "band",
+    "description": "Made famous by Elvis Presley",
+    "performers": ["Concert Band"]
+  },
+  {
+    "title": "Old Man River",
+    "type": "instrument",
+    "description": "Guitar Solo",
+    "performers": ["Wilbur Holden"]
+  }
+]

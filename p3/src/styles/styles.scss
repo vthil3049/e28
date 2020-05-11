@@ -1,0 +1,28 @@
+body {
+  background-color: whitesmoke;
+}
+#app {
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  color: #2c3e50;
+  margin-top: 60px;
+}
+
+.jumbotron {
+  margin-bottom: 0;
+  padding: 0 32px;
+    border: 1px dotted lightgray;
+  }
+
+ul.nav {
+  // background-color: #E9ECEF;
+  // border: 1px dotted lightgray;
+  height: 60px;
+  padding-top: 15px;
+}
+a.router-link-exact-active{
+    background-color: #490500; // #2d083b;
+    color: maroon;
+}
