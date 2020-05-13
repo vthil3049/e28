@@ -32,6 +32,15 @@ export default class Api {
         }
     }
 
+    async filter(collection, field, operator, value) {
+        try {
+            const querySnapshot = await this.api.collection(collection).where(field, operator, value).get();
+            return querySnapshot.docs;
+        }
+        catch (error) {
+            return 'Error getting documents: ' + error;
+        }
+    }
     /**
      * Get a document from a collection by its id
      */

@@ -17,14 +17,12 @@
         <label for='description'>Description</label>
         <textarea v-model='item.description' id='description'></textarea>
 
-        <input type='submit' value='Add' />
+        <input type='submit' @click='addNewItem()' value='Add' />
     </div>
 </template>
-<!-- "title": "Grand Opening",
-"type": "band",
-"description": "National anthem followed by Victory March",
-"performers": ["Honors Jazz Band"] -->
+
 <script>
+import * as utils from '@/common/utils';
 export default {
     name: '',
     data: function() {
@@ -38,6 +36,13 @@ export default {
                 description: '',
             }
         };
+    },
+    methods: {
+      addNewItem: function(){
+        if (this.item.title.length > 0){
+          utils.add('items', this.item);
+        }
+      }
     }
 };
 </script>

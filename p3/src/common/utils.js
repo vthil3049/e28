@@ -58,3 +58,16 @@ export function refreshProgram(){
 export function getProgram(){
   return program;
 }
+/**
+ * Add a document to a collection
+ */
+export function add(collection, document) {
+    try {
+        const docRef = api.collection(collection)
+            .add(document);
+        return docRef.id;
+    }
+    catch (error) {
+        return 'Error adding document: ' + error;
+    }
+}
