@@ -10,6 +10,9 @@
           <th scope="col">Type</th>
           <th scope="col">Performers</th>
           <th scope="col">Description</th>
+          <th scope="col">
+            <i class="fas fa-trash-alt"></i>
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -19,6 +22,9 @@
           <td>{{item.type}}</td>
           <td>{{getPerformers(item)}}</td>
           <td>{{item.description}}</td>
+          <td>
+            <button class="btn" title='Delete item' @click="deleteItem(item, name)"><i class="fa fa-trash"></i></button>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -29,6 +35,7 @@
 //const {items}('../common/program.json');
 // import items from '@/common/program.json';
 //import * as utils from '@/common/utils';
+import * as app from '@/common/app.js';
 
 export default {
   name: 'ProgramPage',
@@ -55,6 +62,16 @@ export default {
         }
       }
       return performerNames;
+    },
+    deleteItem: function(item, name){
+      //let program = this.$store.state.items;
+      console.log('Deleting item ', item, ' with ', name);
+      let ref = app.api.deleteAsync('items', name);
+      console.log("ref is ", ref);
+      ref.then( () =>{
+        console.log("Delete from collection was successful");
+        this.$store.dispatch('setItems');
+      })
     }
   },
   computed: {

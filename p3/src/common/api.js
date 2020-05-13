@@ -86,4 +86,19 @@ export default class Api {
             .doc(id)
             .delete();
     }
+
+    async deleteAsync(collection, id) {
+      try {
+        const ref = await this.api
+            .collection(collection)
+            .doc(id)
+            .delete();
+            console.log('Delete successful');
+            return ref;
+      }
+      catch (error){
+        return 'Error deleting document: ' + error;
+      }
+
+    }
 }
