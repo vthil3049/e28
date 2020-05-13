@@ -28,13 +28,14 @@ export default {
   },
   data: function(){
     return {
-      links:  ['home', 'program', 'credits'],
+      links:  ['home', 'program', 'credits', 'add item'],
       program: null
     }
   },
   mounted: function()
   {
     utils.initFirebase();
+  //utils.seedProgram();
     utils.refreshProgram();
 
   }

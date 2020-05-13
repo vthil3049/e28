@@ -42,7 +42,8 @@ export function refreshProgram(){
   api.collection("items").get().then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
       console.log(`${doc.id} => ${doc.data().title}`);
-      let item = {title: doc.data().title, performers: doc.data().performers, description: doc.data().description }
+      let item = {title: doc.data().title, performers: doc.data().performers, description: doc.data().description,
+      duration:  doc.data().duration }
       console.log(item);
       //program.push(item);
     })

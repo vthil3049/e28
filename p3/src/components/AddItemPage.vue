@@ -30,14 +30,12 @@ export default {
     data: function() {
         return {
             added: false,
-            product: {
-                name: '',
-                slug: '',
-                price: '',
-                available: '',
-                weight: '',
-                perishable: false,
-                description: ''
+            item: {
+                title: '',
+                type: '',
+                duration: '',
+                performers: [],
+                description: '',
             }
         };
     }
