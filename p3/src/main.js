@@ -9,6 +9,8 @@ import AddItemPage from './components/AddItemPage.vue'
 
 Vue.config.productionTip = false
 Vue.use(VueRouter);
+import store from '@/common/store';
+
 const routes = [
   { path: '/', component: HomePage, name:'home' },
   { path: '/program', component: ProgramPage, name: 'program' },
@@ -22,6 +24,7 @@ const router = new VueRouter({
 });
 
 new Vue({
+   store: store,
   router: router,
   render: h => h(App),
 }).$mount('#app')
