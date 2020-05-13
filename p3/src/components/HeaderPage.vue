@@ -1,6 +1,6 @@
 <template>
   <div class='jumbotron text-center'>
-    <h2 class="display-4 text-info">Middle School Talent Show</h2>
+    <h2 class="display-4">Middle School Talent Show</h2>
     <h4>Nashua, New Hampshire</h4>
   </div>
 </template>

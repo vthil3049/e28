@@ -51,7 +51,8 @@ export default {
     addToCart: function(slug) {
       let cart = new app.Cart();
       cart.add(slug);
-      app.store.cartCount = cart.count();
+      //app.store.cartCount = cart.count();
+      this.$store.commit('updateCartCount', 1);
       this.addAlert = true;
       setTimeout(() => (this.addAlert = false), 3000);
     }

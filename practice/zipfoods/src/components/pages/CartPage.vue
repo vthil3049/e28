@@ -6,7 +6,7 @@
     <ul class='cleanList' v-if='products'>
       <li v-for='item in items' :key='item.slug'>
         {{ item.quantity }} x {{ getProductDetails(item.slug).name }}
-        <button @click='removeFromCart(item.slug)'>Remove</button>
+        <button @click='removeFromCart(item.slug, item.quantity)'>Remove</button>
       </li>
     </ul>
   </div>
@@ -20,14 +20,14 @@ export default {
     return {
       items: [],
       cart: null,
-      products: null
+      //products: null
     };
   },
   mounted() {
     // Another redundant call to the API to get all the product data; we'll address this shortly
-    app.api.all('products').then(response => {
-      this.products = response;
-    });
+    // app.api.all('products').then(response => {
+    //   this.products = response;
+    // });
 
     // Making Cart instant a data property so we can use it later in a removeFromCart method
     this.cart = new app.Cart();
@@ -41,9 +41,14 @@ export default {
         }
       }
     },
-    removeFromCart: function(slug) {
+    removeFromCart(slug, quantity) {
       this.cart.remove(slug);
-      app.store.cartCount = this.cart.count();
+      this.$store.commit('updateCartCount', -quantity);
+    }
+  },
+  computed: {
+    products: function() {
+      return this.$store.state.products;
     }
   }
 };

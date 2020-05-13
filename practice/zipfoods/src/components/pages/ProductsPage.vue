@@ -9,7 +9,7 @@
 import ShowProduct from "../ShowProduct.vue";
 
 // import {products} from './../../products.js';
-import * as app from '@/common/app.js';
+//import * as app from '@/common/app.js';
 
 export default {
   name: "",
@@ -19,14 +19,19 @@ export default {
   props: [],
   data: function() {
     return {
-    products: []
+    //products: []
    }
   },
   mounted: function() {
-    app.api.all('products').then(response => {
-        this.products = response;
-    });
-  }
+    // app.api.all('products').then(response => {
+    //     this.products = response;
+    //});
+  },
+  computed: {
+    products: function() {
+        return this.$store.state.products;
+    }
+}
 };
 </script>
 <style scoped></style>
