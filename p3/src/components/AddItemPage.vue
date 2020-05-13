@@ -22,7 +22,8 @@
 </template>
 
 <script>
-import * as utils from '@/common/utils';
+import * as app from '@/common/app.js';
+//import * as utils from '@/common/utils';
 export default {
     name: '',
     data: function() {
@@ -40,7 +41,29 @@ export default {
     methods: {
       addNewItem: function(){
         if (this.item.title.length > 0){
-          utils.add('items', this.item);
+          app.api.add('items', this.item).then(response => {
+                    if (response.includes('Error')) {
+                        alert(response);
+                    } else {
+                        // Because we're not redirecting the user after adding a product, we should reset the validation so they can add a new product
+                        //this.$v.$reset();
+
+                        this.added = true;
+
+                        setTimeout(() => (this.added = false), 3000);
+
+                        this.item = {
+                          title: '',
+                          type: '',
+                          duration: '',
+                          performers: [],
+                          description: '',
+                        };
+
+                        //update the store to reflect the correct Items
+                        this.$store.dispatch('setItems');
+                    }
+                });
         }
       }
     }

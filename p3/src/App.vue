@@ -9,6 +9,8 @@
           </li>
         </ul>
       </nav>
+
+      <h4 v-if="items.length > 0">We have {{items.length}} registrations so far</h4>
       <router-view></router-view>
     </div>
     <br />
@@ -17,7 +19,8 @@
 </template>
 
 <script>
-import * as utils from '@/common/utils'
+//import * as app from '@/common/app.js';
+
 import HeaderPage from './components/HeaderPage.vue'
 import FooterPage from './components/FooterPage.vue'
 export default {
@@ -29,14 +32,22 @@ export default {
   data: function(){
     return {
       links:  ['home', 'program', 'credits', 'add item'],
-      program: null
+      program: null,
+      //items: []
+    }
+  },
+  computed: {
+    items: function(){
+      return this.$store.state.items;
     }
   },
   mounted: function()
   {
-    utils.initFirebase();
-  //utils.seedProgram();
-    utils.refreshProgram();
+    this.$store.dispatch('setItems');
+
+  //   utils.initFirebase();
+  // //utils.seedProgram();
+  //   utils.refreshProgram();
 
   }
 }

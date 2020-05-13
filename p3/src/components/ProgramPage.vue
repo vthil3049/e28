@@ -13,7 +13,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item, index) in items" v-bind:key="item.name">
+        <tr v-for="(item, name, index) in items" :key='item.title'>
           <th scope="row">{{index+1}}</th>
           <td>{{item.title}}</td>
           <td>{{item.type}}</td>
@@ -28,7 +28,7 @@
 <script>
 //const {items}('../common/program.json');
 // import items from '@/common/program.json';
-import * as utils from '@/common/utils';
+//import * as utils from '@/common/utils';
 
 export default {
   name: 'ProgramPage',
@@ -38,7 +38,7 @@ export default {
   data: function(){
     return {
       title: "Program",
-      items: []
+      //items: []
     }
   },
   methods: {
@@ -57,9 +57,14 @@ export default {
       return performerNames;
     }
   },
+  computed: {
+    items: function(){
+      return this.$store.state.items;
+    }
+  },
   mounted: function() {
-    let program = utils.getProgram();
-    this.items = program;
+    let program = this.$store.state.items; //utils.getProgram();
+    //this.items = program;
     console.log("Final program is ", program);
   }
 }

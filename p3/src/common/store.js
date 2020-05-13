@@ -6,7 +6,7 @@ import * as app from '@/common/app.js';
 
 export default new Vuex.Store({
     state: {
-        featuredItem: 0,
+        featuredItem: '',
         items: [],
     },
     // Mutations - Methods used to update data in the store.
