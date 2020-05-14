@@ -1,8 +1,10 @@
 
 # Project 3
 + By: Vani Thilagar
-+ Production URL: <http://e28p3.thilagar.com>
++ Production URL: <http://e28p3.thilagar.com>.
+
 This is being served from Netlify
+
 The purpose for this app to function as a Flyer/Brochure for a school talent show.
 
 
