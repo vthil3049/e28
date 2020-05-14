@@ -1,15 +1,16 @@
 
-# Project 2
+# Project 3
 + By: Vani Thilagar
-+ Production URL: <http://e28p2.thilagar.com>
-
++ Production URL: <http://e28p3.thilagar.com>
+This is being served from Netlify
 The purpose for this app to function as a Flyer/Brochure for a school talent show.
 
 
 ## Pages summary
 1. The Home page has a video running in a loop and contains the event information for the show.
-2. The Program page shows the list of items, their description and performers that will perform on the day of the event.
+2. The Program page shows the list of items, their description and performers that will perform on the day of the event. This has an option to delete an item from the list.
 3. The CreditsPage is a fictitious list of people(Adult staff + students) who are responsible for organizing the show
+4. The AddItemPage lets the user add a new item to the program list. This has built in validation for the required fields and their ranges. There is a field for duration of the item, which is not shown on the Program Page.
 
 ## SFC summary
 1. App.Vue - contains header and footer pages + router-outlet
@@ -20,10 +21,9 @@ The purpose for this app to function as a Flyer/Brochure for a school talent sho
 5. CreditsPage.vue - Event day credits
 
 ## Server interaction
-1. App.vue - on mounting, calls utils.js method to
-* init firebase
-* refresh the data model (program) - this calls the Firebase backend to get the list of items
-2. ProgramPage.vue - on mounting calls utils.js to retrieve the current data model (program)
+1. App.vue - on mounting, calls app.js method to update the list of **items** in the store
+2. ProgramPage.vue - on mounting retrieves the current data model of items from the Store. When an item is deleted the store is refreshed
+3. AddItemPage - adds a single item and updates the store. Contains the validation for the required fields in the form.
 
 ## Outside resources
 * Used **faker** - https://www.npmjs.com/package/faker for generating names in the Credits Page. Notice the names change when you refresh that page :)
@@ -31,4 +31,4 @@ The purpose for this app to function as a Flyer/Brochure for a school talent sho
 
 ## Notes for instructor
 
-This is much skinnier version of the app that I originally had in mind. Ran out of time to complete all that I wanted. I hope to make it better by p3.
+I enjoyed the course, but was constantly running out of time to do everything I wanted to. Its a good thing you gave us a hard deadline of May 14th :)
