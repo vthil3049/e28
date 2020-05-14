@@ -9,6 +9,9 @@ import AddItemPage from './components/AddItemPage.vue'
 
 Vue.config.productionTip = false
 Vue.use(VueRouter);
+import Vuelidate from 'vuelidate'
+Vue.use(Vuelidate)
+
 import store from '@/common/store';
 
 const routes = [

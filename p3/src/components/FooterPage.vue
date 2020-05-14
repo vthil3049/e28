@@ -1,5 +1,5 @@
 <template>
-  <div class='text-center'>
+  <div class='text-center bg-footer'>
     Copyright &copy; - Gate City Events, New Hampshire {{getCopyRightYear()}}<br />
     Homepage video by <a href="https://www.postermywall.com/" target="_blank">www.postermywall.com</a>
   </div>
@@ -29,5 +29,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+.bg-footer {
+  background-color: goldenrod;
+  color: white;
+}
 </style>
