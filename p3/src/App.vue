@@ -2,7 +2,7 @@
   <div id="app" class="container">
     <HeaderPage></HeaderPage>
     <div class='text-center'>
-      <nav nav class="nav navbar bg-dark">
+      <nav nav class="nav navbar bg-navbar">
         <ul class="nav  justify-content-center">
           <li v-for='link in links' :key='link'  class="nav-item">
             <router-link :to='{name: link}' exact  class="nav-link active">{{ link.toUpperCase()}}</router-link>
@@ -55,4 +55,7 @@ export default {
 
 <style  lang='scss'>
 @import "./styles/styles.scss";
+.bg-navbar {
+  background-color: goldenrod;
+}
 </style>
