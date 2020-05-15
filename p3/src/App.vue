@@ -9,8 +9,8 @@
           </li>
         </ul>
       </nav>
-
-      <h4 v-if="items.length > 0">We have {{items.length}} registrations so far</h4>
+<!--
+      <h4 v-if="items" >We have {{items.length}} registrations so far</h4> -->
       <router-view></router-view>
     </div>
     <br />
@@ -39,11 +39,17 @@ export default {
   computed: {
     items: function(){
       return this.$store.state.items;
+    },
+    itemCount: function()
+    {
+      return this.$store.getters.getItemCount();
     }
+
   },
   mounted: function()
   {
     this.$store.dispatch('setItems');
+
 
   //   utils.initFirebase();
   // //utils.seedProgram();

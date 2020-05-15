@@ -8,6 +8,7 @@ export default new Vuex.Store({
     state: {
         featuredItem: '',
         items: [],
+        itemCount: 0
     },
     // Mutations - Methods used to update data in the store.
     mutations: {
@@ -16,6 +17,7 @@ export default new Vuex.Store({
         },
         updateItems(state, payload) {
             state.items = payload;
+            state.itemCount = state.items.length;
         }
     },
     // Actions - Methods used to asynchronously change the store, committing the changes via mutations.
@@ -36,6 +38,11 @@ export default new Vuex.Store({
                     }
                 }
             }
+        },
+        getItemCount(state){
+          return function(){
+            return state.itemCount;
+          }
         }
     }
 })

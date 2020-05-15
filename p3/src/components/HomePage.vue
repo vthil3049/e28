@@ -4,6 +4,7 @@
     <h4>{{event_date}} at Nashua High School North Auditorium</h4>
     <h6 class='text-center text-danger'>Come see our talented students in action with a half hour musical by our talented teachers too</h6>
     <h5 class="text-info font-weight-bold">Start time: 3:00 pm sharp. Seating begins at 2:30pm</h5>
+    <!-- <h6>We have {{getItemCount()}} registrations so far</h6> -->
     <div class="event-details container-fluid row">
       <div class="col-sm">
         <video width="480"  autoplay loop>
@@ -60,6 +61,16 @@
       return {
         title: "Gate City Fall Event",
         event_date: "7th November 2020"
+      }
+    },
+    computed: {
+      itemCount: function(){
+        return this.$store.getters.getItemCount();
+      }
+    },
+    methods: {
+      getItemCount: function(){
+        return this.$store.getters.getItemCount();
       }
     }
   }
