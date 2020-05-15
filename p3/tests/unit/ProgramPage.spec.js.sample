@@ -1,0 +1,10 @@
+import { mount } from '@vue/test-utils'
+import {expect} from 'chai'
+import ProgramPage from '@/components/ProgramPage.vue'
+describe('ProgramPage.vue', () => {
+  it('displays an item', () => {
+    const wrapper = mount(ProgramPage)
+    expect(wrapper.text()).to.include('Old Man River')
+
+  })
+})

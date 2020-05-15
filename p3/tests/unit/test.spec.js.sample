@@ -1,0 +1,7 @@
+import HomePage from '@/components/HomePage.vue';
+import {mount, test} from '@vue/test-utils';
+
+test('mount a vue component', ()=> {
+  const wrapper = mount(HomePage);
+  console.log(wrapper);
+})

@@ -13,6 +13,9 @@
       <h4 v-if="items" >We have {{items.length}} registrations so far</h4> -->
       <router-view></router-view>
     </div>
+    <div>
+      Test
+    </div>
     <br />
     <FooterPage></FooterPage>
   </div>
