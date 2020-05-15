@@ -4,6 +4,13 @@
 <template>
   <div>
     <h4 class='text-center'>Items</h4>
+    <transition name='fade'>
+      <div
+      data-test='item-deleted-confirmation'
+      class='alert'
+      v-if='deleted'
+      >Item was deleted!</div>
+    </transition>
     <table class="table">
       <thead class="thead-light">
         <tr>
@@ -46,6 +53,7 @@ export default {
   },
   data: function(){
     return {
+      deleted: false,
       title: "Program",
       //items: []
     }
@@ -73,6 +81,8 @@ export default {
       ref.then( () =>{
         console.log("Delete from collection was successful");
         this.$store.dispatch('setItems');
+        this.deleted = true;
+        setTimeout(() => {(this.deleted = false)}, 4000);
       })
     }
   },
